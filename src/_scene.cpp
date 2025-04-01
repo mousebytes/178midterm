@@ -47,6 +47,11 @@ GLint _scene::initGL()
     parallax->initPrlx("images/space_bg.png");
 
     enemies[0].initEnms("images/asteroid.png");
+    enemies[0].speed = (float)((rand()%8)+1.0)/100.0;
+    enemies[0].actionTrigger = enemies[0].RIGHTWALK;
+
+    player->initPlayer(1,2,"images/rocket.png");
+    player->actionTrigger = player->STAND;
 
 
 
@@ -80,6 +85,19 @@ void _scene::drawScene()
     glScalef(13.3,13.3,1); // change size bg
     parallax->drawBackground(dim.x,dim.y); // draw using prlx function
     glPopMatrix(); // [pop for every push
+    parallax->scrollDown();
+
+
+    enemies[0].actions();
+    enemies[0].drawEnms(enemies[0].myTex->tex);
+
+    //enemies[0].actionTrigger = 1;
+
+    player->drawPlayer();
+    //player->actionTrigger = player->LEFTWALK;
+    player->playerActions();
+
+
 
 
 
@@ -92,10 +110,15 @@ int _scene::winMsg(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
     case WM_KEYDOWN:
         inputs->wParam = wParam;
-        inputs->keyPressedPRLX(parallax);
+        //inputs->keyPressedPRLX(parallax);
+        inputs->keyPressed(player);
+
         break;
 
-    case WM_KEYUP: break;
+    case WM_KEYUP:
+        inputs->wParam = wParam;
+        inputs->keyUP(player);
+        break;
 
     case WM_LBUTTONDOWN:
     case WM_RBUTTONDOWN:

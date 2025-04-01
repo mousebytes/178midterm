@@ -18,6 +18,7 @@ class _player
         void drawPlayer();              // to render
         void playerActions();           // place actions
 
+
         enum {STAND,LEFTWALK,RIGHTWALK,RUN,JUMP,ATTACK}; // define actions based on the sprite
         vec3 plPos;  //player position
         vec3 plScl;  //player Scale
@@ -29,6 +30,7 @@ class _player
         vec3 vert[4];  // to draw QUAD to place player image
 
         int actionTrigger; // to select actions
+        bool player_facing_right = true;
 
 
     protected:

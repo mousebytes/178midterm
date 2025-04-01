@@ -67,11 +67,30 @@ void _inputs::keyPressed(_bullets &B)
     }
 }
 
-void _inputs::keyUP()
+void _inputs::keyPressed(_player* player)
 {
     switch(wParam)
     {
-        default: break;
+    case VK_LEFT:
+        player->actionTrigger = player->LEFTWALK;
+        break;
+    case VK_RIGHT:
+        player->actionTrigger = player->RIGHTWALK;
+        break;
+    }
+}
+
+
+void _inputs::keyUP(_player *player)
+{
+    switch(wParam)
+    {
+    case VK_LEFT:
+        player->actionTrigger = player->STAND;
+        break;
+    case VK_RIGHT:
+        player->actionTrigger = player->STAND;
+        break;
     }
 
 }

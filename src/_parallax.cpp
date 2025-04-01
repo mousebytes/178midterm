@@ -68,7 +68,19 @@ void _parallax::scroll(bool Auto, string dir, float speed)
            xMin -=speed;
            xMax -=speed;
        }
+
        tmr->reset();
        }// end timer check
    }
+}
+
+void _parallax::scrollDown()
+{
+    if(tmr->getTicks() > 50)
+    {
+        yMin-=0.004;
+        yMax-=0.004;
+
+    tmr->reset();
+    }
 }

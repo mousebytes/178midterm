@@ -17,9 +17,11 @@ class _parallax
         void drawBackground(float, float); // pass width and Height
         void initPrlx(char *);             // File Name
         void scroll(bool,string,float);    // Auto move, direction, speed
+        void scrollDown();
 
         float xMax,xMin,yMax,yMin;         // Texture coordinates
         float speed;
+
 
     protected:
 

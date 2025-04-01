@@ -16,7 +16,7 @@ _enms::_enms()
     frames =1;  //depends on the file
 
     xMax = 1.0/frames;
-    yMax = 1.0/2.0;
+    yMax = 1.0;//1.0/2.0; // this changes based on file too (y height of frames)
 }
 
 _enms::~_enms()
@@ -82,10 +82,10 @@ void _enms::actions()
 
         if(myTimer->getTicks()>60)
         {
-            xMin +=1.0/frames;
+            /*xMin +=1.0/frames;
             xMax +=1.0/frames;
             yMin =0.5;
-            yMax =1.0;
+            yMax =1.0;*/
 
             pos.x<=1?pos.x += speed:actionTrigger=1;
 
@@ -100,10 +100,10 @@ void _enms::actions()
 
          if(myTimer->getTicks()>60)
         {
-            xMin +=1.0/frames;
+            /*xMin +=1.0/frames;
             xMax +=1.0/frames;
             yMin =0.0;
-            yMax =0.5;
+            yMax =0.5;*/
 
             pos.x -= speed;
             pos.x>=-1?pos.x -= speed:actionTrigger=2 ;
@@ -117,10 +117,10 @@ void _enms::actions()
 
          if(myTimer->getTicks()>60)
         {
-            xMin = 0;
+            /*xMin = 0;
             xMax =1.0/frames;
             yMin =0.0;
-            yMax =0.5;
+            yMax =0.5;*/
 
             actionTrigger=0 ;
 
@@ -131,10 +131,10 @@ void _enms::actions()
         case ROTATELEFT:
         if(myTimer->getTicks()>60)
         {
-            xMin +=1.0/frames;
+            /*xMin +=1.0/frames;
             xMax +=1.0/frames;
             yMin =0.5;
-            yMax =1.0;
+            yMax =1.0;*/
 
             theta = 30*PI/180.0;
             pos.x -= vel*t*cos(theta)/1500;
@@ -151,10 +151,10 @@ void _enms::actions()
         case ROTATERIGHT:
           if(myTimer->getTicks()>60)
         {
-            xMin +=1.0/frames;
+            /*xMin +=1.0/frames;
             xMax +=1.0/frames;
             yMin =0.0;
-            yMax =0.5;
+            yMax =0.5;*/
 
             theta = 30*PI/180.0;
             pos.x += vel*t*cos(theta)/1500;

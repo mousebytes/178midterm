@@ -12,10 +12,10 @@ _player::~_player()
 void _player::initPlayer(int xfrm, int yfrm, char* fileName)
 {
     //init Quad
-    vert[0].x = -1.0; vert[0].y = -1.0; vert[0].z = -1.0;
-    vert[1].x =  1.0; vert[1].y = -1.0; vert[1].z = -1.0;
-    vert[2].x =  1.0; vert[2].y =  1.0; vert[2].z = -1.0;
-    vert[3].x = -1.0; vert[3].y =  1.0; vert[3].z = -1.0;
+    vert[0].x = -1.0; vert[0].y = -1.0; vert[0].z = 0.0;
+    vert[1].x =  1.0; vert[1].y = -1.0; vert[1].z = 0.0;
+    vert[2].x =  1.0; vert[2].y =  1.0; vert[2].z = 0.0;
+    vert[3].x = -1.0; vert[3].y =  1.0; vert[3].z = 0.0;
 
     //init player position
 
@@ -45,7 +45,11 @@ void _player::drawPlayer()
 {
     glPushMatrix();
       glTranslatef(plPos.x,plPos.y,plPos.z);
-      glScalef(plScl.x, plScl.y,plScl.z);
+      if(player_facing_right)
+        glScalef(plScl.x, plScl.y,plScl.z);
+      else
+        glScalef(-plScl.x,plScl.y,plScl.z);
+
       glColor3f(1.0,1.0,1.0);
 
       pTex->textureBinder();
@@ -72,20 +76,50 @@ void _player::playerActions()
     switch(actionTrigger)
     {
     case STAND:
-        xMin =0;
-        xMax = 1.0/(float)framesX;
-        yMax = 1.0/(float)framesY;
-        yMin = yMax- (1.0/(float)framesY);
+        //xMin =0;
+        //xMax = 1.0/(float)framesX;
+        //yMax = 1.0/(float)framesY;
+        //yMin = yMax- (1.0/(float)framesY);
+        yMax = 0.5;
+        yMin = 0.0;
         break;
 
     case LEFTWALK:
 
         if(pTmer->getTicks() >70)
         {
-        xMax +=1.0/(float)framesX;
-        xMin +=1.0/(float)framesX;
+        //yMax +=1.0/(float)framesY;
+        //yMin +=1.0/(float)framesY;
+
+        yMax = 1.0;
+        yMin = 0.5;
         pTmer->reset();
+
+
+
+
+        if(plPos.x > -1.75)
+        {
+            plPos.x -=0.05;
+        }
+        player_facing_right = false;
+
         }
         break;
+    case RIGHTWALK:
+        if(pTmer->getTicks()>70)
+        {
+            yMax=1.0;
+            yMin=0.5;
+            pTmer->reset();
+
+            if(plPos.x < 1.75)
+            {
+                plPos.x += 0.05;
+            }
+        }
+        player_facing_right = true;
+
     }
 }
+
