@@ -3,7 +3,7 @@
 _enms::_enms()
 {
     //ctor
-    pos.x =0.0; pos.y =-0.65; pos.z = -5;
+    pos.x =0.0; pos.y =1.0; pos.z = -5;
     scale.x =0.25;
     scale.y =0.25;
 
@@ -89,7 +89,7 @@ void _enms::actions()
 
             pos.x<=1?pos.x += speed:actionTrigger=1;
 
-            pos.y = -0.65;
+            //pos.y = -0.65;
 
             myTimer->reset();
         }
@@ -110,7 +110,6 @@ void _enms::actions()
 
             myTimer->reset();
         }
-
         break;
 
         case STAND: // walk Left
@@ -167,10 +166,25 @@ void _enms::actions()
 
             myTimer->reset();
         }
+            break;
+        case FALLING:
+            if(myTimer->getTicks()>60)
+            {
+                //pos.y -= 0.03;
+                pos.y -= fall_speed;
+                myTimer->reset();
+            }
 
+            if(pos.y < -1.5)
+            {
+                pos.y = 1.5;
+                placeEnms({(float)rand()/(float)(RAND_MAX)*5-2.5, pos.y, pos.z});
+                fall_speed = (float)((rand()%3)+1.0)/100.0;
+            }
 
 
             break;
+
 
     }
 

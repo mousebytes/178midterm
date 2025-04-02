@@ -7,6 +7,8 @@
 #include<_inputs.h>
 #include<_enms.h>
 
+#define MAX_ENEMY_COUNT 10
+
 _player *player = new _player();
 _parallax *parallax = new _parallax();
 _inputs *inputs = new _inputs();
@@ -23,6 +25,8 @@ _scene::~_scene()
 }
 GLint _scene::initGL()
 {
+    srand(time(NULL));
+
    glClearColor(1.0,1.0,1.0,1.0);
    glClearDepth(1.0);
    glEnable(GL_DEPTH_TEST);
@@ -47,13 +51,24 @@ GLint _scene::initGL()
     parallax->initPrlx("images/space_bg.png");
 
     enemies[0].initEnms("images/asteroid.png");
-    enemies[0].speed = (float)((rand()%8)+1.0)/100.0;
-    enemies[0].actionTrigger = enemies[0].RIGHTWALK;
+    enemies[0].speed = (float)((rand()%3)+1.0)/100.0;
+    enemies[0].actionTrigger = enemies[0].FALLING;
 
     player->initPlayer(1,2,"images/rocket.png");
     player->actionTrigger = player->STAND;
 
+    for(int i = 0; i < MAX_ENEMY_COUNT; i++)
+    {
+        //enemies[i].pos.x = (float)rand()/(float)(RAND_MAX)*5-2.5;
 
+        // only want the x pos randomized the rest of the vector could be set by constructor
+        enemies[i].placeEnms({(float)rand()/(float)(RAND_MAX)*5-2.5, enemies[i].pos.y, enemies[i].pos.z});
+        enemies[i].scale.x = enemies[i].scale.y = (float)(rand()%12)/50.0;
+
+        // random speed
+        enemies[i].fall_speed = (float)((rand()%3)+1.0)/100.0;
+
+    }
 
 
    return true;
@@ -88,8 +103,19 @@ void _scene::drawScene()
     parallax->scrollDown();
 
 
-    enemies[0].actions();
+
+    //enemies[0].actions();
     enemies[0].drawEnms(enemies[0].myTex->tex);
+
+    for(int i = 0; i < MAX_ENEMY_COUNT;i++)
+    {
+        enemies[i].drawEnms(enemies[0].myTex->tex);
+        enemies[i].actionTrigger = enemies[i].FALLING;
+
+        enemies[i].actions();
+
+         std::cout << "Enemy " << i << " Speed: " << enemies[i].speed << std::endl;
+    }
 
     //enemies[0].actionTrigger = 1;
 

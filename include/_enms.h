@@ -14,7 +14,7 @@ class _enms
         _timer *myTimer = new _timer();
         _textureLoader *myTex = new _textureLoader();
         float xMax, xMin, yMax, yMin;
-        float speed;
+        float speed, fall_speed;
 
         vec3 pos; //positions of enms
         vec2 scale;
@@ -23,7 +23,7 @@ class _enms
         int frames;
         int actionTrigger;
 
-        enum{STAND,LEFTWALK,RIGHTWALK,ROTATELEFT, ROTATERIGHT};
+        enum{STAND,LEFTWALK,RIGHTWALK,ROTATELEFT, ROTATERIGHT, FALLING};
 
         void initEnms(char *);
         void drawEnms(GLuint);
