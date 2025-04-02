@@ -6,6 +6,7 @@
 #include<_parallax.h>
 #include<_inputs.h>
 #include<_enms.h>
+#include<_collisionckeck.h>
 
 #define MAX_ENEMY_COUNT 10
 
@@ -13,6 +14,7 @@ _player *player = new _player();
 _parallax *parallax = new _parallax();
 _inputs *inputs = new _inputs();
 _enms enemies[10];
+_collisionCkeck *collide = new _collisionCkeck();
 
 _scene::_scene()
 {
@@ -109,12 +111,34 @@ void _scene::drawScene()
 
     for(int i = 0; i < MAX_ENEMY_COUNT;i++)
     {
-        enemies[i].drawEnms(enemies[0].myTex->tex);
-        enemies[i].actionTrigger = enemies[i].FALLING;
+        if(!enemies[i].is_collided)
+        {
+            enemies[i].drawEnms(enemies[0].myTex->tex);
+            enemies[i].actionTrigger = enemies[i].FALLING;
 
-        enemies[i].actions();
+            enemies[i].actions();
+        }
+        else
+        {
+            enemies[i].drawEnms(enemies[0].myTex->tex);
+            enemies[i].actions();
+        }
 
-         std::cout << "Enemy " << i << " Speed: " << enemies[i].speed << std::endl;
+
+
+        if(collide->isRadialCol(enemies[i].pos, player->plPos, 0.2,0.3,0.0002))
+    {
+        if(enemies[i].pos.x > player->plPos.x)
+        {
+            enemies[i].actionTrigger = enemies[i].MOVERIGHT;
+            enemies[i].is_collided = true;
+        }
+        else
+        {
+            enemies[i].actionTrigger = enemies[i].MOVELEFT;
+            enemies[i].is_collided = true;
+        }
+    }
     }
 
     //enemies[0].actionTrigger = 1;

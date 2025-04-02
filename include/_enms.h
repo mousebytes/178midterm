@@ -23,13 +23,14 @@ class _enms
         int frames;
         int actionTrigger;
 
-        enum{STAND,LEFTWALK,RIGHTWALK,ROTATELEFT, ROTATERIGHT, FALLING};
+        enum{STAND,LEFTWALK,RIGHTWALK,ROTATELEFT, ROTATERIGHT, FALLING, MOVELEFT, MOVERIGHT};
 
         void initEnms(char *);
         void drawEnms(GLuint);
         void placeEnms(vec3);
         void actions();
         bool isEnmsLive = true;
+        bool is_collided = false;
 
         float vel=35;   // for velocity
         float theta=0; // theta angle of the projectile

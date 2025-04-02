@@ -9,7 +9,7 @@ _enms::_enms()
 
     rot.x =rot.y=rot.z =0;
     actionTrigger =1;
-    speed = 0.01;
+    speed = 0.05;
 
     xMin= 0;
     yMin= 0;
@@ -181,11 +181,39 @@ void _enms::actions()
                 placeEnms({(float)rand()/(float)(RAND_MAX)*5-2.5, pos.y, pos.z});
                 fall_speed = (float)((rand()%3)+1.0)/100.0;
             }
-
-
             break;
 
+        case MOVERIGHT:
+            if(myTimer->getTicks() > 60)
+            {
+                pos.x += fall_speed;
+                myTimer->reset();
+            }
+            if(pos.x > 2.5)
+            {
+                pos.y = 2.5;
+                placeEnms({(float)rand()/(float)(RAND_MAX)*5-2.5, pos.y, pos.z});
+                fall_speed = (float)((rand()%3)+1.0)/100.0;
+                is_collided = false;
+                actionTrigger = FALLING;
+            }
+            break;
 
+        case MOVELEFT:
+            if(myTimer->getTicks() > 60)
+            {
+                pos.x -= fall_speed;
+                myTimer->reset();
+            }
+            if(pos.x < -2.5)
+            {
+                pos.y = 2.5;
+                placeEnms({(float)rand()/(float)(RAND_MAX)*5-2.5, pos.y, pos.z});
+                fall_speed = (float)((rand()%3)+1.0)/100.0;
+                is_collided = false;
+                actionTrigger = FALLING;
+            }
+            break;
     }
 
 }
