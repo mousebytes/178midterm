@@ -4,6 +4,7 @@
 #include<_common.h>
 #include<_textureloader.h>
 #include<_timer.h>
+#include<_player.h>
 
 class _enms
 {
@@ -12,7 +13,7 @@ class _enms
         virtual ~_enms();
 
         _timer *myTimer = new _timer();
-        _timer *animation_timer = new _timer();
+        _timer *extra_timer = new _timer();
         _textureLoader *myTex = new _textureLoader();
         float xMax, xMin, yMax, yMin;
         float speed, fall_speed;
@@ -30,6 +31,7 @@ class _enms
         void initEnms(char *);
         void drawEnms(GLuint);
         void placeEnms(vec3);
+        void move_enemy_towards_player(_player*);
         void actions();
         bool isEnmsLive = true;
         bool is_collided = false;

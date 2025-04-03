@@ -258,15 +258,16 @@
 1743485817 d:\codeblocks stuff\178midterm\include\_collisionckeck.h
 	<_common.h>
 
-1743562077 source:d:\codeblocks stuff\178midterm\src\_enms.cpp
+1743716526 source:d:\codeblocks stuff\178midterm\src\_enms.cpp
 	"_enms.h"
 
-1743564289 d:\codeblocks stuff\178midterm\include\_enms.h
+1743716444 d:\codeblocks stuff\178midterm\include\_enms.h
 	<_common.h>
 	<_textureloader.h>
 	<_timer.h>
+	<_player.h>
 
-1743490602 source:d:\codeblocks stuff\178midterm\src\_inputs.cpp
+1743716110 source:d:\codeblocks stuff\178midterm\src\_inputs.cpp
 	"_inputs.h"
 
 1743490674 d:\codeblocks stuff\178midterm\include\_inputs.h
@@ -396,24 +397,25 @@
 1743485817 source:d:\codeblocks stuff\178midterm\src\_model.cpp
 	"_model.h"
 
-1743494624 source:d:\codeblocks stuff\178midterm\src\_parallax.cpp
+1743716110 source:d:\codeblocks stuff\178midterm\src\_parallax.cpp
 	"_parallax.h"
 
-1743496234 source:d:\codeblocks stuff\178midterm\src\_player.cpp
+1743716110 source:d:\codeblocks stuff\178midterm\src\_player.cpp
 	"_player.h"
 
-1743496242 d:\codeblocks stuff\178midterm\include\_player.h
+1743716110 d:\codeblocks stuff\178midterm\include\_player.h
 	<_common.h>
 	<_textureloader.h>
 	<_timer.h>
 
-1743564310 source:d:\codeblocks stuff\178midterm\src\_scene.cpp
+1743716110 source:d:\codeblocks stuff\178midterm\src\_scene.cpp
 	"_scene.h"
 	<_common.h>
 	<_player.h>
 	<_parallax.h>
 	<_inputs.h>
 	<_enms.h>
+	<_collisionckeck.h>
 
 1743485817 source:d:\codeblocks stuff\178midterm\src\_sounds.cpp
 	"_sounds.h"

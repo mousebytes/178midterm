@@ -177,6 +177,8 @@ void _enms::actions()
 
 
                 myTimer->reset();
+
+
             }
 
             if(pos.y < -1.5)
@@ -225,3 +227,29 @@ void _enms::actions()
     }
 
 }
+
+void _enms::move_enemy_towards_player(_player* player)
+{
+    // to right of player and hasn't hit player yet
+    if(pos.x > player->plPos.x && !is_collided)
+    {
+        if(extra_timer->getTicks() > 70)
+        {
+            pos.x -=fall_speed;
+
+            extra_timer->reset();
+        }
+    }
+
+    // to left of player and hasn't hit player yet
+    if(pos.x < player->plPos.x && !is_collided)
+    {
+        if(extra_timer->getTicks() > 70)
+        {
+            pos.x +=fall_speed;
+
+            extra_timer->reset();
+        }
+    }
+}
+

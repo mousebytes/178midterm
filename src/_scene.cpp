@@ -123,6 +123,7 @@ void _scene::drawScene()
             enemies[i].drawEnms(enemies[0].myTex->tex);
             enemies[i].actions();
         }
+        enemies[i].move_enemy_towards_player(player);
 
 
 
