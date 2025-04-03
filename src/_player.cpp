@@ -80,8 +80,10 @@ void _player::playerActions()
         //xMax = 1.0/(float)framesX;
         //yMax = 1.0/(float)framesY;
         //yMin = yMax- (1.0/(float)framesY);
-        yMax = 0.5;
+        yMax = 1.0/(3.0);
         yMin = 0.0;
+        xMax += 1.0/(float)framesX;
+        xMin+= 1.0/(float)framesX;
         break;
 
     case LEFTWALK:
@@ -91,10 +93,11 @@ void _player::playerActions()
         //yMax +=1.0/(float)framesY;
         //yMin +=1.0/(float)framesY;
 
-        yMax = 1.0;
-        yMin = 0.5;
-        pTmer->reset();
+        yMax=1.0;
+        yMin=2.0/(float)framesY;
 
+        xMax += 1.0/(float)framesX;
+        xMin += 1.0/(float)framesX;
 
 
 
@@ -102,23 +105,65 @@ void _player::playerActions()
         {
             plPos.x -=0.05;
         }
-        player_facing_right = false;
-
+        //player_facing_right = false;
+        pTmer->reset();
         }
         break;
     case RIGHTWALK:
         if(pTmer->getTicks()>70)
         {
-            yMax=1.0;
-            yMin=0.5;
-            pTmer->reset();
+            yMax=2.0/(float)framesY;
+            yMin=1.0/(float)framesY;
+
+            xMax += 1.0/(float)framesX;
+            xMin += 1.0/(float)framesX;
 
             if(plPos.x < 1.75)
             {
                 plPos.x += 0.05;
             }
+            pTmer->reset();
         }
-        player_facing_right = true;
+        //player_facing_right = true;
+        break;
+    case UP:
+        if(pTmer->getTicks()>70)
+        {
+            yMax = 1.0/(3.0);
+            yMin = 0.0;
+            xMax += 1.0/(float)framesX;
+            xMin+= 1.0/(float)framesX;
+
+            if(plPos.y < 1.75)
+            {
+                plPos.y +=0.05;
+            }
+
+            pTmer->reset();
+        }
+
+
+
+        break;
+    case DOWN:
+        if(pTmer->getTicks()>70)
+        {
+            yMax = 1.0/(3.0);
+            yMin = 0.0;
+            xMax += 1.0/(float)framesX;
+            xMin+= 1.0/(float)framesX;
+
+            if(plPos.y > -1.75)
+            {
+                plPos.y -=0.05;
+            }
+
+            pTmer->reset();
+        }
+
+
+
+        break;
 
     }
 }

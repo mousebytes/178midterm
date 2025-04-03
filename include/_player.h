@@ -19,7 +19,7 @@ class _player
         void playerActions();           // place actions
 
 
-        enum {STAND,LEFTWALK,RIGHTWALK,RUN,JUMP,ATTACK}; // define actions based on the sprite
+        enum {STAND,LEFTWALK,RIGHTWALK,RUN,JUMP,ATTACK,UP,DOWN}; // define actions based on the sprite
         vec3 plPos;  //player position
         vec3 plScl;  //player Scale
 

@@ -45,15 +45,15 @@
 1741649753 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_collisionckeck.h
 	<_common.h>
 
-1743574175 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_enms.cpp
+1743645076 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_enms.cpp
 	"_enms.h"
 
-1743573454 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_enms.h
+1743644900 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_enms.h
 	<_common.h>
 	<_textureloader.h>
 	<_timer.h>
 
-1743566297 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_inputs.cpp
+1743645181 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_inputs.cpp
 	"_inputs.h"
 
 1743566297 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_inputs.h
@@ -183,18 +183,18 @@
 1740010614 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_model.cpp
 	"_model.h"
 
-1743566297 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_parallax.cpp
+1743642113 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_parallax.cpp
 	"_parallax.h"
 
-1743566297 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_player.cpp
+1743643838 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_player.cpp
 	"_player.h"
 
-1743566297 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_player.h
+1743643296 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_player.h
 	<_common.h>
 	<_textureloader.h>
 	<_timer.h>
 
-1743574050 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_scene.cpp
+1743633946 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_scene.cpp
 	"_scene.h"
 	<_common.h>
 	<_player.h>

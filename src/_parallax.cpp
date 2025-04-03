@@ -8,7 +8,7 @@ _parallax::_parallax()
     xMin = 0.0;
     yMax = 1.0;
     yMin = 0.0;
-    speed = 0.005;
+    speed = 0.05;
 }
 
 _parallax::~_parallax()
@@ -78,8 +78,8 @@ void _parallax::scrollDown()
 {
     if(tmr->getTicks() > 50)
     {
-        yMin-=0.004;
-        yMax-=0.004;
+        yMin-=speed;
+        yMax-=speed;
 
     tmr->reset();
     }

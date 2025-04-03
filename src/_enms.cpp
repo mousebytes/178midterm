@@ -13,7 +13,7 @@ _enms::_enms()
 
     xMin= 0;
     yMin= 0;
-    frames =1;  //depends on the file
+    frames =2;  //depends on the file
 
     xMax = 1.0/frames;
     yMax = 1.0;//1.0/2.0; // this changes based on file too (y height of frames)
@@ -172,6 +172,10 @@ void _enms::actions()
             {
                 //pos.y -= 0.03;
                 pos.y -= fall_speed;
+                //xMin += 1.0/(float)frames;
+                //xMax += 1.0/(float)frames;
+
+
                 myTimer->reset();
             }
 
@@ -187,6 +191,8 @@ void _enms::actions()
             if(myTimer->getTicks() > 60)
             {
                 pos.x += fall_speed;
+                //xMin += 1.0/(float)frames;
+                //xMax += 1.0/(float)frames;
                 myTimer->reset();
             }
             if(pos.x > 2.5)
@@ -203,6 +209,8 @@ void _enms::actions()
             if(myTimer->getTicks() > 60)
             {
                 pos.x -= fall_speed;
+                //xMin += 1.0/(float)frames;
+                //xMax += 1.0/(float)frames;
                 myTimer->reset();
             }
             if(pos.x < -2.5)

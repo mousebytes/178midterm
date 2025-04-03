@@ -56,7 +56,7 @@ GLint _scene::initGL()
     enemies[0].speed = (float)((rand()%3)+1.0)/100.0;
     enemies[0].actionTrigger = enemies[0].FALLING;
 
-    player->initPlayer(1,2,"images/rocket.png");
+    player->initPlayer(2,3,"images/rocket2.png");
     player->actionTrigger = player->STAND;
 
     for(int i = 0; i < MAX_ENEMY_COUNT; i++)

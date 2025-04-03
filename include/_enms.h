@@ -12,6 +12,7 @@ class _enms
         virtual ~_enms();
 
         _timer *myTimer = new _timer();
+        _timer *animation_timer = new _timer();
         _textureLoader *myTex = new _textureLoader();
         float xMax, xMin, yMax, yMin;
         float speed, fall_speed;
@@ -22,6 +23,7 @@ class _enms
         vec3 rot; // for rotations
         int frames;
         int actionTrigger;
+        int rand_int;
 
         enum{STAND,LEFTWALK,RIGHTWALK,ROTATELEFT, ROTATERIGHT, FALLING, MOVELEFT, MOVERIGHT};
 

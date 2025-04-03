@@ -77,6 +77,12 @@ void _inputs::keyPressed(_player* player)
     case VK_RIGHT:
         player->actionTrigger = player->RIGHTWALK;
         break;
+    /*case VK_UP:
+        player->actionTrigger = player->UP;
+        break;
+    case VK_DOWN:
+        player->actionTrigger = player->DOWN;
+        break;*/
     }
 }
 
@@ -91,6 +97,12 @@ void _inputs::keyUP(_player *player)
     case VK_RIGHT:
         player->actionTrigger = player->STAND;
         break;
+    /*case VK_UP:
+        player->actionTrigger = player->STAND;
+        break;
+    case VK_DOWN:
+        player->actionTrigger = player->STAND;
+        break;*/
     }
 
 }
