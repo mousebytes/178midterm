@@ -45,13 +45,14 @@
 1741649753 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_collisionckeck.h
 	<_common.h>
 
-1743645076 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_enms.cpp
+1743727454 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_enms.cpp
 	"_enms.h"
 
-1743644900 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_enms.h
+1743727454 c:\users\thinkpadx1\desktop\csci 178\midterm\include\_enms.h
 	<_common.h>
 	<_textureloader.h>
 	<_timer.h>
+	<_player.h>
 
 1743645181 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_inputs.cpp
 	"_inputs.h"
@@ -194,7 +195,7 @@
 	<_textureloader.h>
 	<_timer.h>
 
-1743633946 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_scene.cpp
+1743754146 source:c:\users\thinkpadx1\desktop\csci 178\midterm\src\_scene.cpp
 	"_scene.h"
 	<_common.h>
 	<_player.h>

@@ -13,7 +13,7 @@
 _player *player = new _player();
 _parallax *parallax = new _parallax();
 _inputs *inputs = new _inputs();
-_enms enemies[10];
+_enms enemies[MAX_ENEMY_COUNT];
 _collisionCkeck *collide = new _collisionCkeck();
 
 _scene::_scene()

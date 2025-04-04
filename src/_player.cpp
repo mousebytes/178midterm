@@ -80,10 +80,14 @@ void _player::playerActions()
         //xMax = 1.0/(float)framesX;
         //yMax = 1.0/(float)framesY;
         //yMin = yMax- (1.0/(float)framesY);
-        yMax = 1.0/(3.0);
-        yMin = 0.0;
-        xMax += 1.0/(float)framesX;
-        xMin+= 1.0/(float)framesX;
+        if(pTmer->getTicks()>70)
+        {
+            yMax = 1.0/(3.0);
+            yMin = 0.0;
+            xMax += 1.0/(float)framesX;
+            xMin+= 1.0/(float)framesX;
+        }
+
         break;
 
     case LEFTWALK:
